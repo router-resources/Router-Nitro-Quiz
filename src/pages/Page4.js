@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import { db } from "./firebase-config";
+import { db } from "../firebase-config";
 import {
   collection,
   getDocs,
@@ -11,7 +11,7 @@ import {
 } from "firebase/firestore";
 import './App.css'
 
-function Page8() {
+function Page4() {
 
     const [quiz,setQuiz]=useState([])
   
@@ -20,7 +20,7 @@ function Page8() {
     useEffect(() => {
       const getQuiz = async () => {
         const data = await getDocs(quizCollectionRef);
-        setQuiz(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(obj => obj.module === 8));
+        setQuiz(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(obj => obj.module === 4));
         localStorage.setItem("quiz",data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).toString())
       };
   
@@ -56,6 +56,6 @@ function Page8() {
   )
 }
 
-export default Page8
+export default Page4
 
    

@@ -1,15 +1,15 @@
 import { useState,useEffect } from 'react'
 
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Page1 from './Page1';
-import Page2 from './Page2';
-import Page3 from './Page3';
-import Page4 from './Page4';
-import Page5 from './Page5';
-import Page6 from './Page6';
-import Page7 from './Page7';
-import Page8 from './Page8';
-import Page9 from './Page9';
+import Page1 from './pages/Page1';
+import Page2 from './pages/Page2';
+import Page3 from './pages/Page3';
+import Page4 from './pages/Page4';
+import Page5 from './pages/Page5';
+import Page6 from './pages/Page6';
+import Page7 from './pages/Page7';
+import Page8 from './pages/Page8';
+import Page9 from './pages/Page9';
 import { db } from "./firebase-config";
 import {
   collection,
@@ -19,7 +19,9 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
-import './App.css'
+import './pages/App.css'
+import NavBar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -84,9 +86,10 @@ function App() {
   return (
     <>
 
-{/* <Page1/> */}
+<NavBar/>
 <Router>
       <Routes>
+        
         <Route path="/page1" element={<Page1/>} />
         <Route path="/page2" element={<Page2/>} />
         <Route path="/page3" element={<Page3/>} />
@@ -102,7 +105,7 @@ function App() {
     </Router>
      
      <br></br>
-
+<Footer/>
      {/* <button onClick={createUser}>Send to Database</button> */}
     </>
   )
