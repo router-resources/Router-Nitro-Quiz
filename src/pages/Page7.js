@@ -11,11 +11,32 @@ import {
 } from "firebase/firestore";
 import './App.css'
 
-function Page1() {
+function Page7() {
 
     const [quiz,setQuiz]=useState([])
   
     const quizCollectionRef = collection(db, "quiz");
+
+    const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [score, setScore] = useState(0);
+
+  const handleOptionChange = (event) => {
+    setSelectedAnswer(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    if (selectedAnswer === quiz[currentQuestion].answer) {
+      setScore(score + 1);
+    }
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion <= quiz.length) {
+      setCurrentQuestion(nextQuestion);
+      setSelectedAnswer(null);
+    } else {
+      // Quiz completed, display score
+    }
+  };
   
     useEffect(() => {
       const getQuiz = async () => {
@@ -29,33 +50,44 @@ function Page1() {
  
   return (
     <div>
+      {currentQuestion < quiz.length && <div><h1>Blockchain Quiz</h1>
+      <hr />
+      <p>Select the best answer for each question.</p></div>}
+      
+      {currentQuestion < quiz.length && (
+        <div>
+          <h3>{quiz[currentQuestion].question}</h3>
+          <ul>
+            {quiz[currentQuestion].options.map((option, index) => (
+              <li key={index}>
+                <input
+                  type="radio"
+                  name="answer"
+                  value={option}
+                  checked={selectedAnswer === option}
+                  onChange={handleOptionChange}
+                />
+                {option}
+              </li>
+            ))}
+          </ul>
+          {currentQuestion <= quiz.length && <button onClick={handleSubmit}>Submit Answer</button> }
+          
+        </div>
+      )}
+      {currentQuestion === quiz.length && (
+        <div>
+          <p>You scored {score} out of {quiz.length}</p>
+        </div>
+      )}
 
-
-
-         {quiz.map((doc)=>{
-        return(
-          <div>{doc.question}
-          <br></br>
-          {doc.options.map((o)=>{
-            return(
-              <div>
-                {o}
-              </div>
-            )
-          })}
-
-
-
-          </div>
-        )
-      })}
-
-
-   
+      
     </div>
+  
+        
   )
 }
 
-export default Page1
+export default Page7
 
    

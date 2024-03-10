@@ -1,5 +1,5 @@
 import React from 'react'
-import ConnectWalletButton from './ConnectWalletButton'
+
 
 
 const NavBar= () => {
@@ -13,7 +13,7 @@ const NavBar= () => {
                 </div>
             </div>
             <div className="ml-auto">
-                <ConnectWalletButton />
+               
             </div>
         </div>
     )
