@@ -50,14 +50,18 @@ function Page1() {
  
   return (
     <div>
-      {currentQuestion < quiz.length && <div><h1>Blockchain Quiz</h1>
-      <hr />
-      <p>Select the best answer for each question.</p></div>}
+     
+      <div class='options' style={{fontSize:'24px', color:'white'}}>
+      {currentQuestion < quiz.length && <div>
+     
+      <b>
+      <p>Select the best answer for each question.</p></b></div>}
+    <br></br>
       
       {currentQuestion < quiz.length && (
         <div>
           <h3>{quiz[currentQuestion].question}</h3>
-          <ul>
+          <ul >
             {quiz[currentQuestion].options.map((option, index) => (
               <li key={index}>
                 <input
@@ -71,15 +75,20 @@ function Page1() {
               </li>
             ))}
           </ul>
-          {currentQuestion <= quiz.length && <button onClick={handleSubmit}>Submit Answer</button> }
+          <br></br>
+          {currentQuestion <= quiz.length && <button style={{backgroundColor:'#bb2765',border:'3px solid black'}} onClick={handleSubmit}>Submit </button> }
           
         </div>
+
       )}
       {currentQuestion === quiz.length && (
         <div>
           <p>You scored {score} out of {quiz.length}</p>
         </div>
       )}
+      </div>
+      
+      
 
       
     </div>

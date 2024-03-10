@@ -1,3 +1,11 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #282c34;
+  color:'white';
+
+}
 .App {
   text-align: center;
 }
@@ -37,5 +45,14 @@
   }
 }
 
+.options{
+  
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
 
 

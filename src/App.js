@@ -87,6 +87,12 @@ function App() {
     <>
 
 <NavBar/>
+<br></br><br></br>
+<br></br>
+<br></br>
+<br></br>
+
+
 <Router>
       <Routes>
         
@@ -103,8 +109,10 @@ function App() {
         {/* Add more routes as needed */}
       </Routes>
     </Router>
+   
      
      <br></br>
+     <br></br> <br></br> <br></br> <br></br> 
 <Footer/>
      {/* <button onClick={createUser}>Send to Database</button> */}
     </>
