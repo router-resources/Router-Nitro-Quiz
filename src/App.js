@@ -11,6 +11,8 @@ import Page7 from './pages/Page7';
 import Page8 from './pages/Page8';
 import Page9 from './pages/Page9';
 import { db } from "./firebase-config";
+
+
 import {
   collection,
   getDocs,
@@ -28,6 +30,7 @@ function App() {
   const [quiz,setQuiz]=useState([])
   
   const quizCollectionRef = collection(db, "quiz");
+
 
   const createUser = async () => {
 
@@ -72,7 +75,7 @@ function App() {
     
   };
 
-
+  
   useEffect(() => {
     const getQuiz = async () => {
       const data = await getDocs(quizCollectionRef);
@@ -85,9 +88,12 @@ function App() {
 
   return (
     <>
+    
 
 <NavBar/>
+
 <br></br><br></br>
+
 <br></br>
 <br></br>
 <br></br>
